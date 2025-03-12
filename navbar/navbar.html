@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/navbar/navbar.css" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar-container">
+        <div class="navbar-header-container">
+            <img class="navbar-user-icon" src="/assets/user.png">
+            <div class="navbar-user-container">
+                <p class="navbar-user-text-header">Do-it</p>
+                <p class="navbar-username">Cheese Tuna</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="navbar-todays-tasks-container navbar-icon">
+            <div class="navbar-todays-tasks-header">
+                <img src="/assets/day.png">
+                <p>Todays tasks</p>
+            </div>
+            <div class="navbar-todays-tasks-tags">
+                <ul>
+                    <li>
+                        <div>
+                            <button id="tag-button" onclick="selectTag()">
+                                <img id="tag-red" src="/assets/tag-red.png">
+                            </button>
+                        </div>
+                        <p>Personal</p>
+                    </li>
+                    <li>
+                        <img src="/assets/tag-yellow.png">
+                        <p>Work</p>
+                    </li>
+                    <li>
+                        <img src="/assets/tag-blue.png">
+                        <p>Freelance</p>
+                    </li>
+                    <!-- adding new filter section -->
+                    <li>
+                        <div class="tags-input">
+                            <ul class="tags" id="tags"></ul>
+                            <div class="dropdown" style="float:left;">
+                                <button class="dropbtn"><img src="/assets/add-tag.png"></button>
+                                <div class="dropdown-content" style="left:0;">
+                                    <a><img id="tag-blue" src="/assets/tag-blue.png"></a>
+                                    <a><img id="tag-yellow" src="/assets/tag-yellow.png"></a>
+                                    <a><img id="tag-red" src="/assets/tag-red.png"></a>
+                                    <a><img id="tag-green" src="/assets/tag-green.png"></a>
+                                    <a><img id="tag-purple" src="/assets/tag-purple.png"></a>
+                                    <a><img id="tag-grey" src="/assets/tag-grey.png"></a>
+                                </div>
+                            </div>
+                        <input type="text" id="input-tag" class="navbar-filter" placeholder="Add filter">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="navbar-schedule-container navbar-icon">
+            <img src="/assets/day.png" class="navbar-schedule-icon">
+            <p class="navbar-schedule-text">Schedule tasks</p>
+        </div>
+        <div class="navbar-settings-container navbar-icon">
+            <img src="/assets/day.png" class="navbar-settings-icon">
+            <p class="navbar-schedule-text">Settings</p>
+        </div>
+    </div>
+    <script src="/navbar/navbar.js"></script>
+</body>
+</html>
