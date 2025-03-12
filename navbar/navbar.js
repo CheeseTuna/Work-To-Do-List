@@ -1,13 +1,53 @@
 // Dropdown color selector for tags.
-function selectTag() {
-    const tags = document.querySelector(".tags-input").innerHTML
-    console.log(tags);
-}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdown = document.getElementById("tag-dropdown"); 
+    const dropdownIcons = dropdown.querySelectorAll(".dropdown-icon"); 
+    let selectedTag = null; 
+
+
+    function showDropdown(event, tagElement) {
+        event.stopPropagation(); 
+
+        selectedTag = tagElement; 
+
+
+        const rect = tagElement.getBoundingClientRect();
+
+   
+        dropdown.style.display = "block";
+        dropdown.style.position = "absolute";
+        dropdown.style.left = `${rect.left}px`;
+        dropdown.style.top = `${rect.bottom}px`;
+    }
+
+    
+    document.querySelectorAll(".navbar-todays-tasks-tags img").forEach(tagIcon => {
+        tagIcon.addEventListener("click", function (event) {
+            showDropdown(event, this); 
+        });
+    });
+
+
+    dropdownIcons.forEach(icon => {
+        icon.addEventListener("click", function () {
+            if (selectedTag) {
+                selectedTag.src = this.src; 
+            }
+            dropdown.style.display = "none"; 
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) {
+            dropdown.style.display = "none";
+        }
+    });
+});
 
 
 
-
-
+// Input filters 
 
 const tags = document.getElementById('tags');
 const input = document.getElementById('input-tag');
