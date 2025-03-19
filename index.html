@@ -10,13 +10,18 @@
     <div id="navbar-placeholder"></div>
     <script>
         fetch("/navbar/navbar.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("navbar-placeholder").innerHTML = data;
-        })
-        .catch(error => console.error("Error loading the navbar:", error));
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar-placeholder").innerHTML = data;
+    
+                let script = document.createElement("script");
+                script.src = "/navbar/navbar.js";
+                document.body.appendChild(script);
+                console.log("script is running")
+            })
+            .catch(error => console.error("Error loading the navbar:", error));
     </script>
     
-    <script src="navbar/navbar.js"></script>
+    
 </body>
 </html>
