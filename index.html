@@ -9,17 +9,24 @@
 <body>
     <div id="navbar-placeholder"></div>
     <script>
-        fetch("/navbar/navbar.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("navbar-placeholder").innerHTML = data;
-    
-                let script = document.createElement("script");
-                script.src = "/navbar/navbar.js";
-                document.body.appendChild(script);
-                console.log("script is running")
-            })
-            .catch(error => console.error("Error loading the navbar:", error));
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("/navbar/navbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("navbar-placeholder").innerHTML = data;
+
+                    let script = document.createElement("script");
+                    script.src = "/navbar/navbar.js";
+                    script.onload = () => {
+                        console.log("Navbar script loaded successfully");
+
+                        initializeNavbar();
+                    };
+                    document.body.appendChild(script);
+                })
+                .catch(error => console.error("Error loading the navbar:", error));
+        });
+
     </script>
     
     
