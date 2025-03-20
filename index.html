@@ -8,6 +8,7 @@
 </head>
 <body>
     <div id="navbar-placeholder"></div>
+    <div id="main-placeholder"></div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             fetch("/navbar/navbar.html")
@@ -16,7 +17,7 @@
                     document.getElementById("navbar-placeholder").innerHTML = data;
 
                     let script = document.createElement("script");
-                    script.src = "/navbar/navbar.js";
+                    script.src = "/js/navbar.js";
                     script.onload = () => {
                         console.log("Navbar script loaded successfully");
 

@@ -23,15 +23,16 @@
             <a><img id="tag-grey" src="/assets/tag-grey.png" class="dropdown-icon"></a>
         </div>
     </div>
+    <script src="/js/input.js"></script>
     <script>
-              document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function () {
             fetch("/components/input-bar/input.html")
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("input-task-placeholder").innerHTML = data;
 
                     let script = document.createElement("script");
-                    script.src = "/navbar/navbar.js";
+                    script.src = "/js/navbar.js";
                     script.onload = () => {
                         console.log("Navbar script loaded successfully");
 
@@ -41,7 +42,8 @@
                 })
                 .catch(error => console.error("Error loading the navbar:", error));
         });
+
+        
     </script>
-    <script src="/components/input-bar/input.js"></script>
 </body>
 </html>
