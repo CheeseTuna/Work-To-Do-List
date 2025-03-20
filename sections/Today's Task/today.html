@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-title">
+        <h2>Today main focus</h2>
+        <h1 class="task-title"></h1>
+    </div>
+    <div id="input-task-placeholder">
+
+    </div>
+    <div class="dropdown" id="tag-dropdown" style="position: absolute; display: none;">
+        <div class="dropdown-content">
+            <a><img id="tag-blue" src="/assets/tag-blue.png" class="dropdown-icon"></a>
+            <a><img id="tag-yellow" src="/assets/tag-yellow.png" class="dropdown-icon"></a>
+            <a><img id="tag-red"src="/assets/tag-red.png" class="dropdown-icon"></a>
+            <a><img id="tag-green" src="/assets/tag-green.png" class="dropdown-icon"></a>
+            <a><img id="tag-purple" src="/assets/tag-purple.png" class="dropdown-icon"></a>
+            <a><img id="tag-grey" src="/assets/tag-grey.png" class="dropdown-icon"></a>
+        </div>
+    </div>
+    <script>
+              document.addEventListener("DOMContentLoaded", function () {
+            fetch("/components/input-bar/input.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("input-task-placeholder").innerHTML = data;
+
+                    let script = document.createElement("script");
+                    script.src = "/navbar/navbar.js";
+                    script.onload = () => {
+                        console.log("Navbar script loaded successfully");
+
+                        initializeNavbar();
+                    };
+                    document.body.appendChild(script);
+                })
+                .catch(error => console.error("Error loading the navbar:", error));
+        });
+    </script>
+    <script src="/components/input-bar/input.js"></script>
+</body>
+</html>

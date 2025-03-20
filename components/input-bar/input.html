@@ -7,18 +7,21 @@
 </head>
 <body>
     <div class="taskbar-container">
-        <div class="taskbar-icon-container">
-            <img src="/assets/tag-red.png">
-            <img src="/assets/tag-yellow.png">
-            <img src="/assets/tag-blue.png">
+        <div class="taskbar-icon-container" id="tags">
+            <img src="/assets/cluster-tags.png">
         </div>
         <div class="taskbar-input-textfield-container">
-            <input class="taskbar-input-textfield" type="text" placeholder="What is your next task?">
+            <input class="taskbar-input-textfield" id="input-tag" type="text" placeholder="What is your next task?">
         </div>
-        <div class="taskbar-icon-container">
-            <img src="/assets/time.png">
-            <img src="/assets/day.png">
+        <div class="taskbar-icon-container-settings">
+            <p class="display-time-input"></p>
+            <p id="display-date-input"></p>
+            <img id="time-picker-button" class="time-picker-button" src="/assets/time.png">
+            <input id="timePicker" class="hidden-input" type="time">
+            <img id="date" src="/assets/day.png">
+            <input id="datePicker" class="hidden-input" type="date">
         </div>
     </div>
+    <script src="/components/input-bar/input.js"></script>
 </body>
 </html>

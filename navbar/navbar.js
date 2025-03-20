@@ -33,6 +33,12 @@ function initializeNavbar() {
         });
     });
 
+    document.querySelectorAll(".taskbar-icon-container img").forEach(tagIcon => {
+        tagIcon.addEventListener("click", function (event) {
+            showDropdown(event, this);
+        });
+    });
+
     dropdownIcons.forEach(icon => {
         icon.addEventListener("click", function () {
             if (selectedTag) {
@@ -56,6 +62,7 @@ function initializeNavbar() {
             if (tagContent !== "") {
                 const tagItem = document.createElement("li");
                 const tagIcon = document.createElement("img");
+                // const statusBox = document.createElement("input"); 
                 tagIcon.src = selectedIconSrc;
                 tagIcon.classList.add("filter-tag-icon");
                 tagIcon.addEventListener("click", function (event) {
@@ -65,9 +72,13 @@ function initializeNavbar() {
                 const tagText = document.createElement("p");
                 tagText.innerText = tagContent;
 
+                // hehe
+                
+
                 tagItem.appendChild(tagIcon);
                 tagItem.appendChild(tagText);
                 tagsList.appendChild(tagItem);
+                // statusBox.appendChild(statusBox);
                 input.value = "";
             }
         }
